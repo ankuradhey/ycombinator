@@ -1,4 +1,4 @@
-import { FETCH_NEWS, LOAD_MORE_NEWS, UPVOTE_NEWS }  from './types';
+import { FETCH_NEWS, LOAD_MORE_NEWS, UPVOTE_NEWS, HIDE_NEWS }  from './types';
 
 export function fetchNews(){
     return {
@@ -16,6 +16,13 @@ export function loadMoreNews(page){
 export function upvoteNews(newsId){
     return {
         type: UPVOTE_NEWS,
+        newsId
+    }
+}
+
+export function hideNews(newsId){
+    return {
+        type: HIDE_NEWS,
         newsId
     }
 }

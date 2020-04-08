@@ -3,8 +3,7 @@ import {
   FETCH_NEWS,
   LOAD_MORE_NEWS,
   FETCH_NEWS_SUCCESS,
-  FETCH_NEWS_FAILURE,
-  UPVOTE_NEWS,
+  FETCH_NEWS_FAILURE
 } from "../actions/types";
 
 export const getPage = (state) => state.page
