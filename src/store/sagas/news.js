@@ -16,7 +16,7 @@ const fetchNewsRequest = async (page=0) => {
     const json = await response.json();
     return {data: json.hits, page: json.page}
   } catch (e) {
-    console.log("Request failure");
+    console.log(e);
   }
 };
 

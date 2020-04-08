@@ -3,10 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/node": "^7.8.7",
+    "@babel/register": "^7.9.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "babel-preset-es2015": "^6.24.1",
     "bootstrap": "^4.4.1",
+    "express": "^4.17.1",
+    "ignore-styles": "^5.0.1",
+    "isomorphic-fetch": "^2.2.1",
     "moment": "^2.24.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -19,6 +25,11 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "start-server": "npm run clean-build-folders && npm run build && npm run build-server && npm run run-server",
+    "build-server": "webpack --config webpack.server.js --mode=development",
+    "run-server": "nodemon ./build-server/bundle.js",
+    "clean-build-folders": "rimraf ./build/ && rimraf ./build-server/",
+    "clean-build-server": "rimraf ./build-server/",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -37,5 +48,20 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/polyfill": "^7.8.7",
+    "@babel/preset-env": "^7.9.5",
+    "@babel/preset-react": "^7.9.4",
+    "babel-preset-react-app": "^9.1.2",
+    "babelify": "^10.0.0",
+    "browserify": "^16.5.1",
+    "cross-env": "^7.0.2",
+    "nodemon": "^2.0.2",
+    "rimraf": "^3.0.2",
+    "webpack-cli": "^3.3.11",
+    "webpack-node-externals": "^1.7.2"
   }
 }

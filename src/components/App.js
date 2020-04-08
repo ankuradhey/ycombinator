@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import Header from './Header/Header';
 import News from './News/News';
 import Footer from './Footer/Footer';
-
 import Loader from '../loader.gif';
-
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
