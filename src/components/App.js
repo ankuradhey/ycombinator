@@ -10,32 +10,10 @@ import './App.css';
 
 class App extends Component {
 
-  
-  news = {
-    loading: false,
-    data: [
-            {
-              objectID: "22800136",
-              title: "Ask HN: What is your blog and why should I read it?",
-              author: "jppope",
-              url: "http://med.stanford.edu/news/all-news/2020/04/stanford-researchers-devise-treatment-that-relieved-depression-i.html",
-              points: 594,
-              created_at: "2020-04-07T03:33:56.000Z"
-            }, 
-            {
-              objectID: "2280",
-              title: "Ask HN: What is your blog and why should I read it?",
-              author: "jppope",
-              url: "http://med.stanford.edu/news/all-news/2020/04/stanford-researchers-devise-treatment-that-relieved-depression-i.html",
-              points: 594,
-              created_at: "2020-04-07T03:33:56.000Z"
-            }
-          ]
-  };
-
-  componentWillMount(){
-    
+  componentDidMount(){
+    this.props.fetchNews();
   }
+
  
   render(){
     return (
@@ -43,10 +21,10 @@ class App extends Component {
           <Header />
           <div className="news-container container">
             {
-              !this.news.loading && this.news.data.length ? (
+              !this.props.news.loading && this.props.news.data && this.props.news.data.length ? (
                 <div>
                   {
-                    this.news.data.map((item, indx) => 
+                    this.props.news.data.map((item, indx) => 
                       
                       <News 
                         evenOdd={indx%2===0? true: false}
@@ -67,7 +45,7 @@ class App extends Component {
 
             }
           </div>
-          <Footer />
+          <Footer loadMoreNews={this.props.loadMoreNews} page={this.props.news.page}/>
         </div>
     );
   }

@@ -3,7 +3,7 @@ import news from './news'
 
 
 const rootReducer = combineReducers({
-    news: news,
+    news: news
 })
 
 

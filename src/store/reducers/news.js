@@ -5,22 +5,23 @@ const news = (state = {}, action) => {
     switch(action.type){
         case FETCH_NEWS: 
             return {
+                totalNews: 0,
+                page: action.page || 0,
+                data: [],
                 ...state,
                 loading: true,
                 error: false,
-                totalNews: 0,
-                page: 1
             };
         case FETCH_NEWS_SUCCESS: 
-            let news = action.payload;
-            const totalNews = state.news.length + news.length;
-            const page = state.page + 1;
+            let news = action.data.data;
+            const totalNews = state.data.length + news.length;
+            const page = action.data.page + 1;
 
             return {
                 ...state,
-                news: [
-                    ...state.news,
-                    news
+                data: [
+                    ...state.data,
+                    ...news
                 ],
                 loading: false,
                 error: false,

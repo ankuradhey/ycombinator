@@ -1,4 +1,4 @@
-import { call, put, takeLatest, select } from "redux-saga/effects";
+import { call, put, take } from "redux-saga/effects";
 import {
   FETCH_NEWS,
   LOAD_MORE_NEWS,
@@ -8,28 +8,25 @@ import {
 
 export const getPage = (state) => state.page
 
-const fetchNewsRequest = async (page) => {
+const fetchNewsRequest = async (page=0) => {
   try {
     const response = await fetch(
       `http://hn.algolia.com/api/v1/search?tags=front_page&page=${page}`
     );
-    return response;
+    const json = await response.json();
+    return {data: json.hits, page: json.page}
   } catch (e) {
     console.log("Request failure");
   }
 };
 
-function* fetchNews(loadMore) {
+function* fetchNews(page = 0) {
   try {
-    let page = 0;
-    if(loadMore){
-        page = yield select(getPage);
-    }
     const response = yield call(fetchNewsRequest, page);
     if (response.error) {
-      yield put({ type: FETCH_NEWS_FAILURE, data: response.data });
+      yield put({ type: FETCH_NEWS_FAILURE, data: response });
     } else {
-      yield put({ type: FETCH_NEWS_SUCCESS, data: response.data });
+      yield put({ type: FETCH_NEWS_SUCCESS, data: response });
     }
   } catch (e) {
     yield put({ type: FETCH_NEWS_FAILURE, message: e.message });
@@ -37,9 +34,16 @@ function* fetchNews(loadMore) {
 }
 
 export default function* newsSaga() {
-  yield takeLatest(FETCH_NEWS, fetchNews);
+  while(true){
+    const { page = 0 } = yield take(FETCH_NEWS);
+    yield call(fetchNews, page);
+  }
 }
 
 export function* moreNewsSaga() {
-    yield takeLatest(LOAD_MORE_NEWS, fetchNews, true);
+  while(true){
+    const {page} = yield take(LOAD_MORE_NEWS);
+    yield put({type:FETCH_NEWS, page })
+
+  }
 }

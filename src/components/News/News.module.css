@@ -37,7 +37,7 @@
     line-height:20px;
     white-space:nowrap;
     text-overflow:ellipsis;
-    width:300px;
+    max-width:300px;
     display:inline-block;
 }
 
