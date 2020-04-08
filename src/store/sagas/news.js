@@ -4,6 +4,7 @@ import {
   LOAD_MORE_NEWS,
   FETCH_NEWS_SUCCESS,
   FETCH_NEWS_FAILURE,
+  UPVOTE_NEWS,
 } from "../actions/types";
 
 export const getPage = (state) => state.page
@@ -44,6 +45,5 @@ export function* moreNewsSaga() {
   while(true){
     const {page} = yield take(LOAD_MORE_NEWS);
     yield put({type:FETCH_NEWS, page })
-
   }
 }

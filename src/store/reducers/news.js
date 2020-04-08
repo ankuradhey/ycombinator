@@ -1,4 +1,4 @@
-import { FETCH_NEWS, LOAD_MORE_NEWS, FETCH_NEWS_SUCCESS, FETCH_NEWS_FAILURE}  from '../actions/types';
+import { FETCH_NEWS, LOAD_MORE_NEWS, FETCH_NEWS_SUCCESS, FETCH_NEWS_FAILURE, UPVOTE_NEWS}  from '../actions/types';
 
 
 const news = (state = {}, action) => {
@@ -42,7 +42,19 @@ const news = (state = {}, action) => {
                 loading: true,
                 error: false
             }
-
+        
+        case UPVOTE_NEWS: 
+            const { newsId } = action; 
+            return {
+                ...state,
+                data: state.data.map((val)=>{
+                    if(val.objectID === newsId){
+                        return {...val, points: val.points+1}
+                    }
+                    return val;
+                })
+            }
+            
         default: 
             return state;
         
