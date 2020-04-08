@@ -1,0 +1,16 @@
+.bg-orange {
+  background: #ff742b;
+}
+.navbar {
+  padding: 2px;
+}
+
+.loader{
+  text-align: center;
+  
+}
+
+.loader img {
+  width:200px;
+  height:auto;
+}
