@@ -10,6 +10,7 @@ import './App.css';
 
 class App extends Component {
 
+  
   news = {
     loading: false,
     data: [
