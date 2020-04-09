@@ -14,3 +14,27 @@
   width:200px;
   height:auto;
 }
+
+.logo{
+  border: 1px white solid;
+}
+.headerLink{
+  color:#000;
+  font-size:0.9rem;
+  padding-left:5px;
+}
+.headerLink:hover{
+  color: #000;
+  text-decoration: none;
+}
+
+.moreButton{
+  color:#ff742b;
+  text-align:left;
+  background:none;
+  border:none;
+}
+
+.footer{
+  background:#f6f6ef;
+}

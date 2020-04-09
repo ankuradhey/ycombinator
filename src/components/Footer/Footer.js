@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from './Footer.module.css';
 
 export default function Footer(props){
 
@@ -8,8 +7,8 @@ export default function Footer(props){
     }
 
     return (
-        <footer className={styles.footer}>
-                <button className={styles.moreButton} type="button" onClick={loadMore}>More</button>
+        <footer className="footer">
+                <button className="moreButton" type="button" onClick={loadMore}>More</button>
         </footer>
     )
 }

@@ -12,14 +12,14 @@
       "css": [
         {
           "file": "index.css",
-          "hash": "a568c99f8d678ba534f5",
+          "hash": "92851342880b2005b56d",
           "publicPath": "/index.css"
         }
       ],
       "js": [
         {
           "file": "index.js",
-          "hash": "a568c99f8d678ba534f5",
+          "hash": "92851342880b2005b56d",
           "publicPath": "/index.js"
         }
       ]
