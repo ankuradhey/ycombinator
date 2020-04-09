@@ -12,7 +12,7 @@ export const getPage = (state) => state.page
 const fetchNewsRequest = async (page=0) => {
   try {
     const response = await fetch(
-      `http://hn.algolia.com/api/v1/search?tags=front_page&page=${page}`
+      `https://hn.algolia.com/api/v1/search?tags=front_page&page=${page}`
     );
     const json = await response.json();
     return {data: json.hits, page: json.page}
