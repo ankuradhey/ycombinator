@@ -1,0 +1,28 @@
+{
+  "entrypoints": [
+    "index"
+  ],
+  "origins": {
+    "index": [
+      0
+    ]
+  },
+  "assets": {
+    "0": {
+      "css": [
+        {
+          "file": "index.css",
+          "hash": "a568c99f8d678ba534f5",
+          "publicPath": "/index.css"
+        }
+      ],
+      "js": [
+        {
+          "file": "index.js",
+          "hash": "a568c99f8d678ba534f5",
+          "publicPath": "/index.js"
+        }
+      ]
+    }
+  }
+}

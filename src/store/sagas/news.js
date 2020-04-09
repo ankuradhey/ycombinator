@@ -5,6 +5,7 @@ import {
   FETCH_NEWS_SUCCESS,
   FETCH_NEWS_FAILURE
 } from "../actions/types";
+import fetch from 'isomorphic-fetch';
 
 export const getPage = (state) => state.page
 

@@ -5,7 +5,9 @@ module.exports = {
   target: "node",
   entry: "./src/server/index.js",
   output: {
-    publicPath: "/",
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'build-server'),
+    publicPath: "/"
   },
   externals: [webpackNodeExternals()], // excludes node modules in Webpack
   module: {
