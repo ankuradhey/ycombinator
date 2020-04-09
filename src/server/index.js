@@ -110,7 +110,7 @@ function handleRender(req, res) {
 
 Loadable.preloadAll()
   .then(() => {
-    app.listen(port, () => {
+    app.listen(process.env.PORT || port, () => {
       console.log(`Running on http://localhost:${port}/`);
     });
   })
