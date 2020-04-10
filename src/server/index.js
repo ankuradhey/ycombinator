@@ -68,7 +68,7 @@ function handleRender(req, res) {
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <title>Simple weather app</title>
+        <title>News App</title>
         ${styles
           .map(style => {
             return `<link href="${style.file}" rel="stylesheet" />`;

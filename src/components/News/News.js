@@ -25,10 +25,10 @@ class News extends Component{
                         <span className={`${styles.upvotesCount}`}> {this.props.points} </span>
                         <button className={`${styles.upvote}`} onClick={this.upvoteNews} type="button">&nbsp;</button>
                         <span className={`${styles.newsTitle}`}>{this.props.title && this.props.title.substring(0, 50)} </span>
-                        <span className={`d-md-none d-lg-inline  ${styles.newsUrl}`}> ({this.props.url && this.props.url.substring(0,300)})</span>
-                        <span className={`${styles.subdetails}`}> by </span>
-                        <span className={`${styles.authorName}`}> {this.props.author}</span>
-                        <Moment style={{padding:'0 10px'}} fromNow>{this.props.created_at}</Moment>
+                        <span className={`d-sm-none d-md-none d-lg-inline  ${styles.newsUrl}`}> ({this.props.url && this.props.url.substring(0,300)})</span>
+                        <span className={`d-sm-none d-md-inline d-lg-inline ${styles.subdetails}`}> by </span>
+                        <span className={`d-sm-none d-md-inline d-lg-inline ${styles.authorName}`}> {this.props.author}</span>
+                        <Moment className="d-sm-none d-md-inline d-lg-inline" style={{padding:'0 10px'}} fromNow>{this.props.created_at}</Moment>
                         <button className={`${styles.newsTitle}`} type="button" onClick={this.hideNews}>[ hide ]</button>
                 </dl>) : "" 
             );
